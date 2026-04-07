@@ -91,7 +91,7 @@ function UpsellModal({ onClose }: { onClose: () => void }) {
 
         {/* CTA */}
         <a
-          href="https://pay.cakto.com.br/3zuwz6w_829063"
+          href="https://pay.lowify.com.br/go.php?offer=r4c17em"
           target="_blank"
           rel="noopener noreferrer"
           onClick={onClose}
@@ -102,7 +102,7 @@ function UpsellModal({ onClose }: { onClose: () => void }) {
 
         {/* decline */}
         <a
-          href="https://pay.cakto.com.br/kvg9jvt"
+          href="https://pay.lowify.com.br/go.php?offer=d0ivo51"
           target="_blank"
           rel="noopener noreferrer"
           className="block w-full text-center text-gray-400 text-sm underline hover:text-gray-600"
@@ -379,7 +379,7 @@ function Pricing({ onBasicClick }: { onBasicClick: () => void }) {
               <div className="mb-4 text-center">
                 <span className="text-gray-400 line-through text-sm block">De R$ 17,90</span>
                 <span className="text-2xl align-top mt-2 inline-block text-gray-900 font-bold">R$ </span>
-                <span className="font-extrabold text-4xl text-gray-900">4,90</span>
+                <span className="font-extrabold text-4xl text-gray-900">5,90</span>
               </div>
             </div>
             <div className="p-5 text-center">
@@ -436,7 +436,7 @@ function Pricing({ onBasicClick }: { onBasicClick: () => void }) {
                 <span className="font-extrabold text-4xl text-gray-900">17,90</span>
               </div>
               <a
-                href="https://pay.cakto.com.br/343a2sj"
+                href="https://pay.lowify.com.br/checkout.php?product_id=2OOlYi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-full text-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-transform hover:-translate-y-1 active:translate-y-0 active:shadow-none inline-flex items-center justify-center gap-2 cursor-pointer w-full mb-3"
