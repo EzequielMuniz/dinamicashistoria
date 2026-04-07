@@ -94,7 +94,7 @@ function UpsellModal({ onClose }: { onClose: () => void }) {
           href="https://pay.lowify.com.br/go.php?offer=r4c17em"
           target="_blank"
           rel="noopener noreferrer"
-          onClick={onClose}
+          onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); onClose(); }}
           className="block w-full text-center bg-green-500 hover:bg-green-600 text-white font-extrabold py-4 px-6 rounded-full text-base shadow-[3px_3px_0px_0px_rgba(0,100,0,0.4)] transition-transform hover:-translate-y-1 mb-4"
         >
           SIM, QUERO O DESCONTO!
@@ -105,6 +105,7 @@ function UpsellModal({ onClose }: { onClose: () => void }) {
           href="https://pay.lowify.com.br/go.php?offer=d0ivo51"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); }}
           className="block w-full text-center text-gray-400 text-sm underline hover:text-gray-600"
         >
           Não, quero apenas o pacote básico
@@ -384,7 +385,7 @@ function Pricing({ onBasicClick }: { onBasicClick: () => void }) {
             </div>
             <div className="p-5 text-center">
               <button
-                onClick={onBasicClick}
+                onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); onBasicClick(); }}
                 className="block w-full text-center bg-white hover:bg-gray-50 text-gray-900 font-bold py-3 px-6 rounded-full border-2 border-gray-900 transition-transform hover:-translate-y-1"
               >
                 Quero o Plano Básico!
@@ -439,6 +440,7 @@ function Pricing({ onBasicClick }: { onBasicClick: () => void }) {
                 href="https://pay.lowify.com.br/checkout.php?product_id=2OOlYi"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); }}
                 className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-full text-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-transform hover:-translate-y-1 active:translate-y-0 active:shadow-none inline-flex items-center justify-center gap-2 cursor-pointer w-full mb-3"
               >
                 QUERO O PLANO PREMIUM
