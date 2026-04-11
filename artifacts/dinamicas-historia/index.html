@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
+    <!-- Meta Pixel -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -20,8 +21,16 @@
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '1737472807604231');
       fbq('track', 'PageView');
+      fbq('track', 'ViewContent', {
+        content_name: 'Dinamicas de Historia - Pagina de Vendas',
+        content_ids: ['dinamicas-historia'],
+        content_type: 'product',
+        value: 17.90,
+        currency: 'BRL'
+      });
     </script>
 
+    <!-- UTMify Pixel -->
     <script>
       window.pixelId = "69cdae8219ca9516d340b298";
       var a = document.createElement("script");
@@ -34,7 +43,7 @@
   <body>
     <noscript>
       <img height="1" width="1" style="display:none"
-           src="https://www.facebook.com/tr?id=1737472807604231&ev=PageView&noscript=1" />
+        src="https://www.facebook.com/tr?id=1737472807604231&ev=PageView&noscript=1" />
     </noscript>
 
     <div id="root"></div>
