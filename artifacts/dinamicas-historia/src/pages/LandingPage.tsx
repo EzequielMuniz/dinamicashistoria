@@ -1,74 +1,182 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <!-- Charset (ESSENCIAL) -->
-    <meta charset="UTF-8" />
+import { useState, useRef, useEffect } from "react";
 
-    <!-- Viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+function getTodayBR() {
+  return new Date().toLocaleDateString("pt-BR");
+}
 
-    <!-- Title -->
-    <title>Dinâmicas de História</title>
+function getCheckoutUrl(baseUrl: string) {
+  try {
+    const url = new URL(baseUrl);
+    const params = new URLSearchParams(window.location.search);
+    [
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_content",
+      "utm_term",
+      "src",
+      "sck",
+    ].forEach((key) => {
+      const val = params.get(key);
+      if (val) url.searchParams.set(key, val);
+    });
+    return url.toString();
+  } catch {
+    return baseUrl;
+  }
+}
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+function useDragScroll() {
+  const ref = useRef<HTMLDivElement>(null);
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
 
-    <!-- Meta Pixel -->
-    <script>
-      !function(f,b,e,v,n,t,s){
-        if(f.fbq)return;
-        n=f.fbq=function(){
-          n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
-        };
-        if(!f._fbq)f._fbq=n;
-        n.push=n;
-        n.loaded=!0;
-        n.version='2.0';
-        n.queue=[];
-        t=b.createElement(e);
-        t.async=!0;
-        t.src=v;
-        s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s);
-      }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
 
-      fbq('init', '1737472807604231');
-      fbq('track', 'PageView');
+    const onDown = (e: MouseEvent) => {
+      isDown = true;
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+      el.style.cursor = "grabbing";
+    };
 
-      fbq('track', 'ViewContent', {
-        content_name: 'Dinâmicas de História - Página de Vendas',
-        content_ids: ['dinamicas-historia'],
-        content_type: 'product',
-        value: 17.90,
-        currency: 'BRL'
-      });
-    </script>
+    const onUp = () => {
+      isDown = false;
+      el.style.cursor = "grab";
+    };
 
-    <!-- UTMify Pixel -->
-    <script>
-      window.pixelId = "69cdae8219ca9516d340b298";
-    </script>
-    <script async src="https://cdn.utmify.com.br/scripts/pixel/pixel.js"></script>
+    const onMove = (e: MouseEvent) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      el.scrollLeft = scrollLeft - (x - startX);
+    };
 
-  </head>
+    el.style.cursor = "grab";
+    el.addEventListener("mousedown", onDown);
+    window.addEventListener("mouseup", onUp);
+    el.addEventListener("mousemove", onMove);
 
-  <body>
-    <!-- Fallback Pixel -->
-    <noscript>
-      <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=1737472807604231&ev=PageView&noscript=1"
-      />
-    </noscript>
+    return () => {
+      el.removeEventListener("mousedown", onDown);
+      window.removeEventListener("mouseup", onUp);
+      el.removeEventListener("mousemove", onMove);
+    };
+  }, []);
 
-    <!-- React App -->
-    <div id="root"></div>
+  return ref;
+}
 
-    <!-- Script -->
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+/* ================= Upsell ================= */
+function UpsellModal({ onClose }: { onClose: () => void }) {
+  const features = [
+    "+350 Dinâmicas",
+    "Todos os Bônus Exclusivos",
+    "Acesso Vitalício",
+    "Garantia Total",
+  ];
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
+      <div className="bg-white rounded-[24px] p-8 max-w-sm w-full relative shadow-2xl">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-gray-400 text-2xl"
+        >
+          ×
+        </button>
+
+        <h2 className="text-2xl font-extrabold text-center mb-1">
+          Leve o Plano Premium!
+        </h2>
+
+        <div className="text-center mb-5">
+          <span className="block text-gray-400 line-through text-sm">
+            De R$17,90
+          </span>
+          <span className="block text-green-600 font-extrabold text-4xl">
+            Por R$14,90
+          </span>
+        </div>
+
+        <ul className="space-y-3 mb-6">
+          {features.map((f) => (
+            <li key={f} className="flex items-center gap-2 text-sm">
+              ✅ {f}
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href={getCheckoutUrl(
+            "https://pay.lowify.com.br/go.php?offer=r4c17em"
+          )}
+          className="block w-full text-center bg-green-500 text-white py-4 rounded-full mb-4"
+        >
+          SIM, QUERO O DESCONTO!
+        </a>
+
+        <a
+          href={getCheckoutUrl(
+            "https://pay.lowify.com.br/go.php?offer=d0ivo51"
+          )}
+          className="block text-center text-gray-400 text-sm underline"
+        >
+          Não, quero apenas o pacote básico
+        </a>
+      </div>
+    </div>
+  );
+}
+
+/* ================= Countdown ================= */
+function Countdown() {
+  return (
+    <div className="bg-yellow-400 text-center py-2 text-sm font-bold">
+      ⏰ OFERTA VÁLIDA SOMENTE HOJE: {getTodayBR()}
+    </div>
+  );
+}
+
+/* ================= Hero ================= */
+function Hero() {
+  return (
+    <section className="py-16 px-4 text-center">
+      <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
+        <span className="bg-yellow-400 px-2 rounded-md">
+          +250 Dinâmicas
+        </span>
+        <br />
+        de História
+      </h1>
+
+      <p className="text-lg text-gray-600 mb-10">
+        Transforme suas aulas em viagens no tempo inesquecíveis e prenda a atenção dos alunos do início ao fim.
+      </p>
+
+      <a
+        href="#checkout"
+        className="bg-black text-yellow-400 font-bold py-4 px-10 rounded-full"
+      >
+        🎯 Quero minhas dinâmicas agora!
+      </a>
+    </section>
+  );
+}
+
+/* ================= Page ================= */
+export default function LandingPage() {
+  const [showUpsell, setShowUpsell] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-white">
+      {showUpsell && <UpsellModal onClose={() => setShowUpsell(false)} />}
+      <Countdown />
+      <Hero />
+    </div>
+  );
+}
