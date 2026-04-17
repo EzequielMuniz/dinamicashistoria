@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>+250 Dinâmicas de História — Transforme suas Aulas Hoje</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1737472807604231');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+      content_name: 'Dinamicas de Historia - Variante B',
+      content_ids: ['dinamicas-historia-b'],
+      content_type: 'product',
+      value: 17.90,
+      currency: 'BRL'
+    });
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1737472807604231&ev=PageView&noscript=1" /></noscript>
+
+  <!-- UTMify Pixel -->
+  <script>window.pixelId = "69cdae8219ca9516d340b298";</script>
+  <script async src="https://cdn.utmify.com.br/scripts/pixel/pixel.js"></script>
+
+  <style>
+    * { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+    body { overflow-x: hidden; }
+
+    /* ---- CTA Pulse ---- */
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.55); }
+      60%       { box-shadow: 0 0 0 14px rgba(22,163,74,0); }
+    }
+    .cta-pulse { animation: ctaPulse 2.2s infinite; }
+
+    /* ---- Hero gradient ---- */
+    .hero-bg { background: linear-gradient(150deg, #1e3a8a 0%, #1d4ed8 50%, #6d28d9 100%); }
+
+    /* ---- Sticky header ---- */
+    #sticky-header {
+      transition: transform .3s ease, opacity .3s ease;
+      transform: translateY(-110%);
+      opacity: 0;
+    }
+    #sticky-header.visible { transform: translateY(0); opacity: 1; }
+
+    /* ---- Countdown digits ---- */
+    .cd-digit {
+      display: inline-block;
+      background: rgba(0,0,0,.35);
+      border-radius: 6px;
+      padding: 1px 7px;
+      font-weight: 900;
+      font-size: .95rem;
+      letter-spacing: 1px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ---- Bonus card hover ---- */
+    .bonus-card { transition: transform .2s, box-shadow .2s; }
+    .bonus-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.12); }
+
+    /* ---- Value badge ---- */
+    .value-badge {
+      background: linear-gradient(135deg,#16a34a,#15803d);
+      color:#fff; font-size:.65rem; font-weight:700;
+      padding:2px 8px; border-radius:20px;
+      text-transform:uppercase; letter-spacing:.5px;
+      display:inline-block;
+    }
+
+    /* ---- Fade up on scroll ---- */
+    .fade-up { opacity:0; transform:translateY(28px); transition:opacity .65s ease, transform .65s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+
+    /* ---- Stars ---- */
+    .stars { color:#f59e0b; }
+
+    /* ---- FAQ accordion ---- */
+    .faq-body { max-height:0; overflow:hidden; transition:max-height .35s ease; }
+    .faq-body.open { max-height:400px; }
+    .faq-icon { transition:transform .3s; }
+    .faq-item.open .faq-icon { transform:rotate(45deg); }
+
+    /* ---- Progress bar ---- */
+    @keyframes fillBar { from{width:0} to{width:76%} }
+    .fill-bar { animation: fillBar 1.4s ease-out forwards; width:0; }
+
+    /* ---- Mobile sticky bar ---- */
+    #mobile-cta { transition: transform .3s ease; }
+
+    /* ---- Scrollbar thin ---- */
+    ::-webkit-scrollbar { width:6px; }
+    ::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:3img; }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- ================================================ -->
+  <!-- TOP BAR — Countdown                             -->
+  <!-- ================================================ -->
+  <div id="top-bar" class="bg-red-600 text-white text-center py-2 px-4 text-sm font-bold sticky top-0 z-50 flex items-center justify-center gap-2 flex-wrap">
+    <span>⏰ OFERTA ENCERRA EM:</span>
+    <span class="flex items-center gap-1">
+      <span class="cd-digit" id="cd-h">00</span><span class="font-black">:</span>
+      <span class="cd-digit" id="cd-m">00</span><span class="font-black">:</span>
+      <span class="cd-digit" id="cd-s">00</span>
+    </span>
+    <span>— Preço sobe após o prazo!</span>
+  </div>
+
+  <!-- ================================================ -->
+  <!-- STICKY HEADER (aparece ao rolar)                 -->
+  <!-- ================================================ -->
+  <div id="sticky-header" class="fixed top-0 left-0 right-0 z-40 bg-white shadow-lg border-b border-gray-100 px-4 py-3">
+    <div class="max-w-5xl mx-auto flex items-center justify-between gap-3">
+      <span class="font-bold text-gray-800 text-sm hidden sm:block">
+        +250 Dinâmicas de História <span class="text-green-600 ml-1">— apenas R$17,90</span>
+      </span>
+      <a href="https://pay.lowify.com.br/checkout.php?product_id=2OOlYi"
+         onclick="fbq('track','InitiateCheckout')"
+         class="ml-auto bg-green-600 hover:bg-green-700 text-white font-black px-6 py-2 rounded-full text-sm shadow-md transition-all whitespace-nowrap">
+        🎯 Garantir meu acesso — R$17,90
+      </a>
+    </div>
+  </div>
+
+  <!-- ================================================ -->
+  <!-- HERO                                             -->
+  <!-- ================================================ -->
+  <section class="hero-bg text-white pt-14 pb-16 px-4 text-center">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Social proof badge acima do headline -->
+      <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full px-5 py-2 mb-6 text-sm font-semibold">
+        <span class="stars text-base">★★★★★</span>
+        <span>4.9/5 · Confiado por <strong>+2.800 professores</strong></span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-4">
+        +250 Dinâmicas<br class="hidden sm:block">de História
+      </h1>
+
+      <!-- Sub-headline -->
+      <p class="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed mb-2">
+        Transforme suas aulas em viagens no tempo inesquecíveis e prenda a atenção dos alunos do início ao fim.
+      </p>
+      <p class="text-base text-yellow-300 font-bold mb-8">
+        ✅ Baixou, imprimiu e aplicou — sem horas de preparo.
+      </p>
+
+      <!-- CTA principal -->
+      <a href="#checkout"
+         class="cta-pulse inline-block bg-green-500 hover:bg-green-400 active:scale-95 text-white font-black text-xl px-10 py-5 rounded-full shadow-2xl transition-all mb-4">
+        🎯 Quero minhas dinâmicas agora!
+      </a>
+
+      <!-- Trust micro-copy -->
+      <div class="flex justify-center flex-wrap gap-x-5 gap-y-1 text-sm text-blue-200 mb-10">
+        <span>🔒 Pagamento 100% Seguro</span>
+        <span>⚡ Acesso Imediato</span>
+        <span>🛡️ Garantia de 30 dias</span>
+      </div>
+
+      <!-- Vídeo -->
+      <div class="max-w-2xl mx-auto">
+        <video controls preload="metadata"
+          class="w-full rounded-2xl shadow-2xl border-4 border-yellow-400"
+          poster="product.png">
+          <source src="video.mp4" type="video/mp4">
+        </video>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- O QUE VOCÊ VAI RECEBER                           -->
+  <!-- ================================================ -->
+  <section class="py-16 px-4 bg-white fade-up">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-2">📦 O Que Você Vai Receber</h2>
+      <p class="text-gray-500 mb-12">Tudo que você precisa para transformar suas aulas, disponível hoje mesmo.</p>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="bg-blue-50 border border-blue-100 rounded-2xl p-7 text-center">
+          <div class="text-5xl mb-3">📦</div>
+          <h3 class="font-bold text-xl text-gray-900 mb-2">Material Completo</h3>
+          <p class="text-gray-600 text-sm">Acesso a todas as +250 dinâmicas interativas e recursos de história</p>
+        </div>
+        <div class="bg-blue-50 border border-blue-100 rounded-2xl p-7 text-center">
+          <div class="text-5xl mb-3">⚡</div>
+          <h3 class="font-bold text-xl text-gray-900 mb-2">Acesso Imediato</h3>
+          <p class="text-gray-600 text-sm">Comece a usar no mesmo dia. Sem espera, sem burocracia</p>
+        </div>
+        <div class="bg-blue-50 border border-blue-100 rounded-2xl p-7 text-center">
+          <div class="text-5xl mb-3">📅</div>
+          <h3 class="font-bold text-xl text-gray-900 mb-2">Planejamento</h3>
+          <p class="text-gray-600 text-sm">Planejamentos anuais estruturados e prontos para usar em suas aulas</p>
+        </div>
+      </div>
+
+      <!-- CTA após seção -->
+      <a href="#checkout"
+         class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all text-lg">
+        🎯 Quero meu acesso agora →
+      </a>
+      <p class="text-sm text-gray-400 mt-3">⚡ Liberado em até 5 min após o pagamento</p>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- BÔNUS EXCLUSIVOS                                 -->
+  <!-- ================================================ -->
+  <section class="py-16 px-4 bg-gray-50 fade-up">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-10">
+        <div class="inline-block bg-red-100 text-red-700 text-xs font-black uppercase tracking-widest px-4 py-1 rounded-full mb-3">
+          Bônus Exclusivos — Hoje Grátis
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-2">
+          R$241 em Bônus <span class="text-green-600">Incluídos Grátis</span>
+        </h2>
+        <p class="text-gray-600">Com o Pacote Premium você leva tudo isso sem pagar nada a mais:</p>
+      </div>
+
+      <!-- Bonus cards grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+
+        <div class="bonus-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex gap-4 items-start">
+          <img src="50-linhas-tempo.jpg" alt="50 Linhas do Tempo" class="w-16 h-16 rounded-xl object-cover flex-shrink-0">
+          <div>
+            <span class="value-badge">Valor R$57</span>
+            <h3 class="font-bold text-gray-900 text-sm mt-1">50 Linhas do Tempo Ilustradas</h3>
+            <p class="text-gray-500 text-xs mt-1">Guia visual completo de períodos históricos para todas as idades</p>
+          </div>
+        </div>
+
+        <div class="bonus-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex gap-4 items-start">
+          <img src="jogos-hist.jpg" alt="30 Jogos Históricos" class="w-16 h-16 rounded-xl object-cover flex-shrink-0">
+          <div>
+            <span class="value-badge">Valor R$47</span>
+            <h3 class="font-bold text-gray-900 text-sm mt-1">30 Jogos Históricos Prontos</h3>
+            <p class="text-gray-500 text-xs mt-1">Atividades lúdicas completas com passo a passo detalhado</p>
+          </div>
+        </div>
+
+        <div class="bonus-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex gap-4 items-start">
+          <img src="atlas-mapa.jpg" alt="Apostila de Mapas" class="w-16 h-16 rounded-xl object-cover flex-shrink-0">
+          <div>
+            <span class="value-badge">Valor R$47</span>
+            <h3 class="font-bold text-gray-900 text-sm mt-1">Apostila de Mapas Históricos</h3>
+            <p class="text-gray-500 text-xs mt-1">Exercícios práticos com mapas, cronologias e eventos</p>
+          </div>
+        </div>
+
+        <div class="bonus-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex gap-4 items-start">
+          <img src="debates.jpg" alt="Debates Históricos" class="w-16 h-16 rounded-xl object-cover flex-shrink-0">
+          <div>
+            <span class="value-badge">Valor R$50</span>
+            <h3 class="font-bold text-gray-900 text-sm mt-1">40 Dinâmicas de Debate Histórico</h3>
+            <p class="text-gray-500 text-xs mt-1">Roteiros prontos com perguntas orientadoras e divisão de grupos</p>
+          </div>
+        </div>
+
+        <div class="bonus-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex gap-4 items-start">
+          <img src="100-avaliacoes.jpg" alt="Banco de Avaliações" class="w-16 h-16 rounded-xl object-cover flex-shrink-0">
+          <div>
+            <span class="value-badge">Valor R$40</span>
+            <h3 class="font-bold text-gray-900 text-sm mt-1">Banco de Avaliações e Atividades</h3>
+            <p class="text-gray-500 text-xs mt-1">Banco completo de avaliações prontas para aplicar em sala</p>
+          </div>
+        </div>
+
+        <!-- Card de valor total -->
+        <div class="bg-gradient-to-br from-blue-700 to-purple-700 text-white rounded-2xl p-6 shadow-md flex flex-col justify-center items-center text-center">
+          <p class="text-blue-200 text-sm mb-1">Valor total dos bônus:</p>
+          <p class="text-3xl font-black line-through opacity-50 leading-none">R$241</p>
+          <p class="text-5xl font-black text-yellow-300 leading-none mt-1">GRÁTIS</p>
+          <p class="text-blue-200 text-xs mt-2">Incluídos no Pacote Premium</p>
+        </div>
+
+      </div>
+
+      <div class="text-center">
+        <a href="#checkout"
+           class="cta-pulse inline-block bg-green-500 hover:bg-green-400 text-white font-black text-xl px-10 py-5 rounded-full shadow-xl transition-all">
+          🎯 Quero meus bônus grátis agora!
+        </a>
+        <p class="text-sm text-gray-500 mt-3">🛡️ Garantia incondicional de 30 dias</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- POR QUE ESCOLHER                                 -->
+  <!-- ================================================ -->
+  <section class="py-16 px-4 bg-white fade-up">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-12">Por Que Escolher Este Material?</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-4">
+          <div class="text-5xl mb-3">🎯</div>
+          <h3 class="font-bold text-lg text-gray-900 mb-2">Engajamento Garantido</h3>
+          <p class="text-gray-500 text-sm">Atividades testadas em sala de aula com resultados comprovados.</p>
+        </div>
+        <div class="p-4">
+          <div class="text-5xl mb-3">🔄</div>
+          <h3 class="font-bold text-lg text-gray-900 mb-2">Sempre Atualizado</h3>
+          <p class="text-gray-500 text-sm">Material alinhado à BNCC com as melhores práticas pedagógicas.</p>
+        </div>
+        <div class="p-4">
+          <div class="text-5xl mb-3">👩‍🏫</div>
+          <h3 class="font-bold text-lg text-gray-900 mb-2">+2.800 Professores</h3>
+          <p class="text-gray-500 text-sm">Uma comunidade de educadores que já transformaram suas aulas.</p>
+        </div>
+        <div class="p-4">
+          <div class="text-5xl mb-3">✅</div>
+          <h3 class="font-bold text-lg text-gray-900 mb-2">Pronto para Usar</h3>
+          <p class="text-gray-500 text-sm">Zero formatação. Baixou, imprimiu (ou abriu no tablet) e usou.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- DEPOIMENTOS                                      -->
+  <!-- ================================================ -->
+  <section class="py-16 px-4 bg-gray-50 fade-up">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-10">
+        <div class="flex justify-center items-center gap-2 mb-1">
+          <span class="stars text-2xl">★★★★★</span>
+          <span class="text-3xl font-black text-gray-900">4.9/5</span>
+        </div>
+        <p class="text-gray-500 text-sm">(+2.800 professores avaliaram)</p>
+        <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mt-4">O Que Dizem os Professores</h2>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-10">
+        <img src="wpp1.jpg"  alt="Depoimento 1"  class="rounded-2xl w-full shadow-sm hover:shadow-md transition-shadow object-cover">
+        <img src="wpp2.jpg"  alt="Depoimento 2"  class="rounded-2xl w-full shadow-sm hover:shadow-md transition-shadow object-cover">
+        <img src="wpp3.jpg"  alt="Depoimento 3"  class="rounded-2xl w-full shadow-sm hover:shadow-md transition-shadow object-cover">
+        <img src="wpp4.jpg"  alt="Depoimento 4"  class="rounded-2xl w-full shadow-sm hover:shadow-md transition-shadow object-cover">
+        <img src="wpp5.jpg"  alt="Depoimento 5"  class="rounded-2xl w-full shadow-sm hover:shadow-md transition-shadow object-cover">
+        <img src="wpp6.jpg"  alt="Depoimento 6"  class="rounded-2xl w-full shadow-sm hover:shadow-md transition-shadow object-cover">
+        <img src="wpp7.jpg"  alt="Depoimento 7"  class="rounded-2xl w-full shadow-sm hover:shadow-md transition-shadow object-cover">
+        <img src="wpp8.jpg"  alt="Depoimento 8"  class="rounded-2xl w-full shadow-sm hover:shadow-md transition-shadow object-cover">
+        <img src="wpp9.jpg"  alt="Depoimento 9"  class="rounded-2xl w-full shadow-sm hover:shadow-md transition-shadow object-cover">
+        <img src="wpp10.jpg" alt="Depoimento 10" class="rounded-2xl w-full shadow-sm hover:shadow-md transition-shadow object-cover">
+      </div>
+
+      <div class="text-center">
+        <a href="#checkout"
+           class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all text-lg">
+          Quero fazer parte desse grupo →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- ESSE MATERIAL É PARA VOCÊ?                       -->
+  <!-- ================================================ -->
+  <section class="py-16 px-4 bg-white fade-up">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <div class="inline-block bg-blue-100 text-blue-700 text-xs font-black uppercase tracking-widest px-4 py-1 rounded-full mb-3">Feito para você?</div>
+        <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Esse material é ideal para...</h2>
+        <p class="text-gray-500 mt-2">Veja se as +250 Dinâmicas foram feitas para o seu momento</p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="flex items-center gap-4 bg-green-50 border border-green-100 rounded-2xl p-4">
+          <span class="text-2xl">🏫</span>
+          <span class="text-gray-800 font-medium">Professores do Ensino Fundamental e Médio</span>
+        </div>
+        <div class="flex items-center gap-4 bg-green-50 border border-green-100 rounded-2xl p-4">
+          <span class="text-2xl">⏰</span>
+          <span class="text-gray-800 font-medium">Quem não tem tempo de criar aulas do zero</span>
+        </div>
+        <div class="flex items-center gap-4 bg-green-50 border border-green-100 rounded-2xl p-4">
+          <span class="text-2xl">📚</span>
+          <span class="text-gray-800 font-medium">Quem quer aulas de História mais dinâmicas e envolventes</span>
+        </div>
+        <div class="flex items-center gap-4 bg-green-50 border border-green-100 rounded-2xl p-4">
+          <span class="text-2xl">🔄</span>
+          <span class="text-gray-800 font-medium">Quem busca renovar o planejamento sem gastar horas</span>
+        </div>
+        <div class="flex items-center gap-4 bg-green-50 border border-green-100 rounded-2xl p-4">
+          <span class="text-2xl">🖨️</span>
+          <span class="text-gray-800 font-medium">Quem quer praticidade: baixou, imprimiu e aplicou</span>
+        </div>
+        <div class="flex items-center gap-4 bg-green-50 border border-green-100 rounded-2xl p-4">
+          <span class="text-2xl">🎯</span>
+          <span class="text-gray-800 font-medium">Quem quer que os alunos participem mais e se engajem</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- CHECKOUT / PLANOS                                -->
+  <!-- ================================================ -->
+  <section id="checkout" class="py-16 px-4 bg-gray-50 fade-up">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-4">
+        <div class="inline-block bg-red-100 text-red-700 text-xs font-black uppercase tracking-widest px-4 py-1 rounded-full mb-3">
+          Oferta por tempo limitado
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-gray-900">Escolha seu Plano</h2>
+      </div>
+
+      <!-- Barra de escassez -->
+      <div class="max-w-xl mx-auto mb-10">
+        <div class="flex justify-between text-sm font-semibold text-gray-600 mb-1">
+          <span>🔥 Vagas com desconto disponíveis</span>
+          <span class="text-red-600 font-bold">76% ocupadas</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+          <div class="fill-bar h-3 bg-gradient-to-r from-orange-400 to-red-500 rounded-full"></div>
+        </div>
+        <p class="text-xs text-gray-500 mt-1 text-center">Ao esgotar, o preço volta para R$241,00</p>
+      </div>
+
+      <!-- Cards -->
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+
+        <!-- Pacote Básico -->
+        <div class="bg-white border-2 border-gray-200 rounded-3xl p-8 flex flex-col">
+          <h3 class="text-xl font-bold text-gray-700 mb-1">Pacote Básico</h3>
+          <p class="text-gray-400 text-sm mb-6">Para quem quer dar o primeiro passo</p>
+
+          <ul class="space-y-2 mb-8 flex-1">
+            <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> 250 Atividades Avaliativas</li>
+            <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Acesso Imediato</li>
+            <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Garantia de 30 dias</li>
+            <li class="flex items-center gap-2 text-sm text-gray-400 line-through"><span>✕</span> Bônus Exclusivos</li>
+            <li class="flex items-center gap-2 text-sm text-gray-400 line-through"><span>✕</span> Linhas do Tempo Ilustradas</li>
+            <li class="flex items-center gap-2 text-sm text-gray-400 line-through"><span>✕</span> Mapas Históricos</li>
+          </ul>
+
+          <div class="text-center mb-4">
+            <p class="text-gray-400 text-sm line-through">De R$ 17,90</p>
+            <p class="text-4xl font-black text-gray-800">R$ <span class="text-5xl">5,90</span></p>
+          </div>
+
+          <!-- NOTA: Substitua o href abaixo pelo link do checkout do Plano Básico -->
+          <a href="#"
+             onclick="fbq('track','InitiateCheckout'); return true;"
+             class="block text-center border-2 border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white font-bold px-6 py-3 rounded-full transition-all">
+            Quero o Plano Básico
+          </a>
+          <p class="text-center text-xs text-gray-400 mt-2">🔒 Pagamento seguro</p>
+        </div>
+
+        <!-- Pacote Premium — DESTAQUE -->
+        <div class="relative bg-gradient-to-b from-blue-700 to-blue-900 text-white rounded-3xl p-8 flex flex-col shadow-2xl border-4 border-yellow-400">
+
+          <!-- Badge mais vendido -->
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-yellow-900 text-xs font-black px-5 py-1.5 rounded-full whitespace-nowrap uppercase tracking-wide shadow">
+            ⭐ MAIS VENDIDO — MELHOR CUSTO-BENEFÍCIO
+          </div>
+
+          <h3 class="text-2xl font-black mt-3 mb-1">👑 Pacote Premium</h3>
+          <p class="text-blue-200 text-sm mb-5">Tudo para transformar suas aulas de verdade</p>
+
+          <div class="flex justify-center mb-5">
+            <img src="product.png" alt="Kit Completo" class="rounded-xl shadow-lg max-h-40 object-contain">
+          </div>
+
+          <ul class="space-y-2 mb-8 flex-1">
+            <li class="flex items-center gap-2 text-sm"><span class="text-yellow-300 font-bold">✓</span> 350 Atividades Avaliativas</li>
+            <li class="flex items-center gap-2 text-sm"><span class="text-yellow-300 font-bold">✓</span> Acesso Imediato</li>
+            <li class="flex items-center gap-2 text-sm"><span class="text-yellow-300 font-bold">✓</span> Garantia de 30 dias</li>
+            <li class="flex items-center gap-2 text-sm"><span class="text-yellow-300 font-bold">✓</span> 50 Linhas do Tempo Ilustradas</li>
+            <li class="flex items-center gap-2 text-sm"><span class="text-yellow-300 font-bold">✓</span> 30 Jogos Históricos Prontos</li>
+            <li class="flex items-center gap-2 text-sm"><span class="text-yellow-300 font-bold">✓</span> Apostila de Mapas Históricos</li>
+            <li class="flex items-center gap-2 text-sm"><span class="text-yellow-300 font-bold">✓</span> 40 Debates Históricos</li>
+            <li class="flex items-center gap-2 text-sm"><span class="text-yellow-300 font-bold">✓</span> Banco de Avaliações</li>
+            <li class="flex items-center gap-2 text-sm font-semibold text-yellow-300"><span>✓</span> Todos os Bônus Exclusivos</li>
+          </ul>
+
+          <div class="text-center mb-5">
+            <p class="text-blue-300 text-sm">Valor real dos bônus:</p>
+            <p class="text-blue-200 line-through text-2xl font-bold">R$ 241,00</p>
+            <p class="text-white text-base mt-1">Hoje por apenas</p>
+            <p class="text-5xl font-black text-yellow-300 leading-none">R$ 17,90</p>
+            <p class="text-blue-300 text-xs mt-1">Acesso vitalício · Sem mensalidade</p>
+          </div>
+
+          <a href="https://pay.lowify.com.br/checkout.php?product_id=2OOlYi"
+             onclick="fbq('track','InitiateCheckout')"
+             class="cta-pulse block text-center bg-green-500 hover:bg-green-400 active:scale-95 text-white font-black text-lg px-6 py-4 rounded-full shadow-xl transition-all">
+            🚀 QUERO O PLANO PREMIUM
+          </a>
+          <div class="flex justify-center gap-3 mt-3 text-xs text-blue-300 flex-wrap">
+            <span>🔒 Pagamento seguro</span>
+            <span>⚡ Acesso imediato</span>
+            <span>🛡️ 30 dias de garantia</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- SOBRE A AUTORA                                   -->
+  <!-- ================================================ -->
+  <section class="py-16 px-4 bg-white fade-up">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-black text-gray-900 mb-8">Sobre a Autora</h2>
+      <img src="autora.png" alt="Ana Carolina Ferreira"
+           class="w-28 h-28 rounded-full mx-auto mb-4 object-cover border-4 border-blue-100 shadow-md">
+      <h3 class="text-2xl font-bold text-gray-900">Ana Carolina Ferreira</h3>
+      <p class="text-gray-500 mb-6">Professora e Especialista em Didática da História</p>
+
+      <div class="flex justify-center gap-10 mb-6 flex-wrap">
+        <div class="text-center">
+          <p class="text-4xl font-black text-blue-700">10+</p>
+          <p class="text-sm text-gray-500">anos de experiência</p>
+        </div>
+        <div class="text-center">
+          <p class="text-4xl font-black text-blue-700">2.800+</p>
+          <p class="text-sm text-gray-500">professores impactados</p>
+        </div>
+        <div class="text-center">
+          <p class="text-4xl font-black text-blue-700">250+</p>
+          <p class="text-sm text-gray-500">dinâmicas criadas</p>
+        </div>
+      </div>
+
+      <blockquote class="italic text-gray-600 text-lg max-w-xl mx-auto">
+        "Acredito que a História pode ser a matéria favorita de qualquer aluno — só precisa ser ensinada do jeito certo."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- GARANTIA                                         -->
+  <!-- ================================================ -->
+  <section class="py-16 px-4 bg-blue-50 fade-up">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="text-7xl mb-4">🛡️</div>
+      <h2 class="text-3xl font-black text-gray-900 mb-4">Garantia de 30 Dias</h2>
+      <p class="text-gray-600 text-lg leading-relaxed">
+        Se você não ficar <strong>100% satisfeito</strong> com o material por qualquer motivo, devolvemos todo o seu dinheiro. Sem perguntas, sem burocracia. Você não tem nada a perder.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- FAQ                                              -->
+  <!-- ================================================ -->
+  <section class="py-16 px-4 bg-white fade-up">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-black text-gray-900 text-center mb-10">Perguntas Frequentes</h2>
+
+      <div class="space-y-3">
+
+        <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center text-left px-6 py-5 font-bold text-gray-800 hover:bg-gray-50 transition-colors">
+            <span>Para quem é esse material?</span>
+            <span class="faq-icon text-blue-600 text-2xl font-bold ml-4 flex-shrink-0">+</span>
+          </button>
+          <div class="faq-body px-6 pb-5 text-gray-600">
+            Para professores de História do Ensino Fundamental e Médio que querem aulas mais dinâmicas sem precisar criar tudo do zero. Também é ótimo para coordenadores pedagógicos e quem está iniciando na carreira.
+          </div>
+        </div>
+
+        <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center text-left px-6 py-5 font-bold text-gray-800 hover:bg-gray-50 transition-colors">
+            <span>Em quanto tempo recebo o material?</span>
+            <span class="faq-icon text-blue-600 text-2xl font-bold ml-4 flex-shrink-0">+</span>
+          </button>
+          <div class="faq-body px-6 pb-5 text-gray-600">
+            O acesso é <strong>imediato</strong>! Logo após a confirmação do pagamento, você receberá o link de acesso por e-mail. Em menos de 5 minutos você já pode baixar e usar.
+          </div>
+        </div>
+
+        <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center text-left px-6 py-5 font-bold text-gray-800 hover:bg-gray-50 transition-colors">
+            <span>O material funciona em qual formato?</span>
+            <span class="faq-icon text-blue-600 text-2xl font-bold ml-4 flex-shrink-0">+</span>
+          </button>
+          <div class="faq-body px-6 pb-5 text-gray-600">
+            O material é entregue em PDF — funciona em qualquer dispositivo (celular, tablet, computador). Você pode imprimir ou usar diretamente na tela durante a aula.
+          </div>
+        </div>
+
+        <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center text-left px-6 py-5 font-bold text-gray-800 hover:bg-gray-50 transition-colors">
+            <span>Tem garantia?</span>
+            <span class="faq-icon text-blue-600 text-2xl font-bold ml-4 flex-shrink-0">+</span>
+          </button>
+          <div class="faq-body px-6 pb-5 text-gray-600">
+            Sim! Você tem <strong>30 dias de garantia incondicional</strong>. Se não gostar, basta entrar em contato e devolvemos 100% do valor pago. Sem burocracia e sem perguntas.
+          </div>
+        </div>
+
+        <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center text-left px-6 py-5 font-bold text-gray-800 hover:bg-gray-50 transition-colors">
+            <span>Posso usar com qualquer ano escolar?</span>
+            <span class="faq-icon text-blue-600 text-2xl font-bold ml-4 flex-shrink-0">+</span>
+          </button>
+          <div class="faq-body px-6 pb-5 text-gray-600">
+            Sim! As dinâmicas foram criadas para atender do 6º ano do Ensino Fundamental ao 3º ano do Ensino Médio, com atividades adaptáveis para diferentes faixas etárias e níveis de aprendizagem.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- CTA FINAL                                        -->
+  <!-- ================================================ -->
+  <section class="py-20 px-4 hero-bg text-white text-center fade-up">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl font-black mb-4">Transforme suas Aulas Hoje!</h2>
+      <p class="text-blue-100 text-lg mb-8">
+        Mais de 2.800 professores já descobriram como tornar a história irresistível. Chegou a sua vez.
+      </p>
+      <a href="https://pay.lowify.com.br/checkout.php?product_id=2OOlYi"
+         onclick="fbq('track','InitiateCheckout')"
+         class="cta-pulse inline-block bg-green-500 hover:bg-green-400 active:scale-95 text-white font-black text-xl px-12 py-6 rounded-full shadow-2xl transition-all mb-4">
+        🚀 Quero começar agora!
+      </a>
+      <div class="flex justify-center gap-5 text-sm text-blue-200 flex-wrap">
+        <span>✅ Acesso imediato</span>
+        <span>✅ Garantia 30 dias</span>
+        <span>✅ Pagamento seguro</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- FOOTER                                           -->
+  <!-- ================================================ -->
+  <footer class="py-8 px-4 bg-gray-900 text-center text-gray-500 text-sm">
+    <p class="mb-1">© 2026 Dinâmicas de História. Todos os direitos reservados.</p>
+    <p>Este produto é digital. Você receberá acesso por e-mail após o pagamento.</p>
+  </footer>
+
+  <!-- ================================================ -->
+  <!-- MOBILE STICKY BOTTOM BAR                         -->
+  <!-- ================================================ -->
+  <div id="mobile-cta" class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-green-600 shadow-2xl px-4 py-3 flex items-center justify-between gap-3 border-t border-green-500">
+    <div class="text-white text-xs leading-tight">
+      <p class="font-black text-sm">+250 Dinâmicas de História</p>
+      <p class="text-green-200">🛡️ Garantia 30 dias · Acesso imediato</p>
+    </div>
+    <a href="https://pay.lowify.com.br/checkout.php?product_id=2OOlYi"
+       onclick="fbq('track','InitiateCheckout')"
+       class="flex-shrink-0 bg-white text-green-700 font-black text-sm px-5 py-3 rounded-full shadow-md whitespace-nowrap">
+      Garantir — R$17,90
+    </a>
+  </div>
+
+  <!-- ================================================ -->
+  <!-- SCRIPTS                                          -->
+  <!-- ================================================ -->
+  <script>
+    // ---- 1. Countdown Timer (zera à meia-noite) ----
+    function updateCountdown() {
+      const now = new Date();
+      const end = new Date(now);
+      end.setHours(23, 59, 59, 0);
+      const diff = end - now;
+
+      if (diff <= 0) { updateCountdown(); return; }
+
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+
+      document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+      document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+      document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ---- 2. Sticky header aparece ao rolar ----
+    const stickyHeader = document.getElementById('sticky-header');
+    let heroHeight = 0;
+    window.addEventListener('load', () => {
+      heroHeight = document.querySelector('.hero-bg').offsetHeight || 400;
+    });
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > heroHeight * 0.7) {
+        stickyHeader.classList.add('visible');
+      } else {
+        stickyHeader.classList.remove('visible');
+      }
+    });
+
+    // ---- 3. Fade-up on scroll (IntersectionObserver) ----
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // ---- 4. Fill bar trigger (scarcity) ----
+    const fillBarEl = document.querySelector('.fill-bar');
+    if (fillBarEl) {
+      const fillObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            fillBarEl.style.animationPlayState = 'running';
+            fillObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      fillObs.observe(fillBarEl);
+    }
+
+    // ---- 5. FAQ accordion ----
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const body = item.querySelector('.faq-body');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-body').classList.remove('open');
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        body.classList.add('open');
+      }
+    }
+
+    // ---- 6. Mobile bar: hide when at checkout section ----
+    const checkoutSection = document.getElementById('checkout');
+    const mobileCta = document.getElementById('mobile-cta');
+    const mobileObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          mobileCta.style.transform = 'translateY(120%)';
+        } else {
+          mobileCta.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    if (checkoutSection) mobileObs.observe(checkoutSection);
+
+    // ---- 7. Smooth scroll for anchor links ----
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
