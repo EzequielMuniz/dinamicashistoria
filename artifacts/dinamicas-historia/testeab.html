@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinâmicas de História – Teste A/B</title>
+    <!--
+      Esta versão de teste A/B incorpora melhorias sugeridas para aumentar a
+      conversão da visita ao início de checkout. O foco é apresentar a
+      proposta de valor de forma clara, destacar o preço logo no topo,
+      incluir provas sociais antes da dobra e repetir botões de CTA em
+      seções estratégicas. A página utiliza HTML e CSS simples para
+      facilitar edições futuras e reduzir dependências externas.
+    -->
+    <style>
+      :root {
+        --primary: #f7c600;
+        --secondary: #111;
+        --cta: #2ecc71;
+        --cta-hover: #27ae60;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.5;
+        color: #333;
+      }
+      .top-bar {
+        background: var(--primary);
+        color: #000;
+        text-align: center;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+      header {
+        padding: 2rem 1rem 1rem;
+        text-align: center;
+      }
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+      header p.tagline {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: #555;
+      }
+      .price-badge {
+        background: var(--cta);
+        color: #fff;
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+      .cta-btn {
+        background: var(--cta);
+        color: #fff;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background 0.3s ease;
+      }
+      .cta-btn:hover {
+        background: var(--cta-hover);
+      }
+      .section {
+        padding: 2rem 1rem;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      .features {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin-bottom: 2rem;
+      }
+      .feature-item {
+        background: #fafafa;
+        padding: 1rem;
+        border: 1px solid #eee;
+        border-radius: 4px;
+      }
+      .feature-item h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .testimonials {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+      .testimonial {
+        min-width: 250px;
+        flex-shrink: 0;
+        background: #f0f0f0;
+        padding: 1rem;
+        border-radius: 4px;
+      }
+      .testimonial p {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+      .testimonial .name {
+        font-weight: bold;
+        color: #555;
+      }
+      .guarantee {
+        background: #e8f8f5;
+        border: 1px solid #a2d9ce;
+        padding: 1rem;
+        border-radius: 4px;
+        text-align: center;
+        margin: 2rem auto;
+        max-width: 640px;
+      }
+      footer {
+        background: var(--secondary);
+        color: #fff;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+      footer p {
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar">
+      Oferta válida somente hoje — não perca!
+    </div>
+    <header>
+      <h1>+250 Dinâmicas de História</h1>
+      <p class="tagline">
+        Transforme suas aulas em viagens no tempo inesquecíveis e prenda a
+        atenção dos alunos do início ao fim.
+      </p>
+      <!-- Destaque do preço logo no topo -->
+      <div class="price-badge">A partir de R$&nbsp;5,90</div><br />
+      <a href="#checkout" class="cta-btn">Quero começar agora</a>
+      <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #555;">
+        Acesso imediato • Garantia de 30 dias • Pagamento seguro
+      </p>
+    </header>
+
+    <section class="section">
+      <h2>O que você vai receber</h2>
+      <div class="features">
+        <div class="feature-item">
+          <h3>Atividades Interativas</h3>
+          <p>Acesso a todas as +250 dinâmicas de História prontas para usar.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Acesso Imediato</h3>
+          <p>Receba o material no seu e‑mail logo após a compra — sem espera.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Planejamento Estruturado</h3>
+          <p>Roteiros anuais prontos para facilitar sua preparação de aulas.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Bônus Exclusivos</h3>
+          <p>Linhas do tempo ilustradas, jogos históricos e debates prontos.</p>
+        </div>
+      </div>
+      <div style="text-align: center;">
+        <a href="#checkout" class="cta-btn">Quero as dinâmicas!</a>
+      </div>
+    </section>
+
+    <section class="section" style="background: #f9f9f9;">
+      <h2>O que dizem os professores</h2>
+      <div class="testimonials">
+        <!-- Em vez de capturas de tela, use depoimentos curtos para carregar rapidamente -->
+        <div class="testimonial">
+          <p>“Meus alunos ficaram encantados! As atividades tornaram a aula muito mais dinâmica.”</p>
+          <span class="name">— Marco V.</span>
+        </div>
+        <div class="testimonial">
+          <p>“Economizei horas de planejamento. Vale cada centavo!”</p>
+          <span class="name">— Patrícia G.</span>
+        </div>
+        <div class="testimonial">
+          <p>“Impressionante como os recursos são organizados e fáceis de aplicar.”</p>
+          <span class="name">— Leonardo M.</span>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 1rem;">
+        <a href="#checkout" class="cta-btn">Quero começar agora</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Garantia de 30 Dias</h2>
+      <div class="guarantee">
+        Se você não ficar 100&nbsp;% satisfeito com o material por qualquer motivo,
+        devolvemos todo o seu dinheiro. Sem perguntas, sem burocracia.
+      </div>
+    </section>
+
+    <section class="section" id="checkout" style="background: #f9f9f9;">
+      <h2>Escolha seu plano</h2>
+      <div class="features" style="align-items: stretch;">
+        <div class="feature-item" style="text-align: center;">
+          <h3>Plano Básico</h3>
+          <p>250 atividades avaliativas<br />Acesso imediato<br />Garantia de 30 dias</p>
+          <p style="font-weight:bold; font-size: 1.4rem; margin: 1rem 0;">R$&nbsp;5,90</p>
+          <a href="#" class="cta-btn">Quero o Básico</a>
+        </div>
+        <div class="feature-item" style="text-align: center; border: 2px solid var(--cta);">
+          <h3>Plano Premium</h3>
+          <p>350 atividades avaliativas<br />Todos os bônus exclusivos<br />30 jogos históricos, mapas e debates</p>
+          <p style="font-weight:bold; font-size: 1.4rem; margin: 1rem 0;">R$&nbsp;17,90</p>
+          <a href="#" class="cta-btn">Quero o Premium</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Mais de 2.800 professores satisfeitos</p>
+      <p>© 2026 Dinâmicas de História. Todos os direitos reservados.</p>
+      <p>Este produto é digital e será enviado por e‑mail após a confirmação do pagamento.</p>
+    </footer>
+  </body>
+</html>
