@@ -342,31 +342,21 @@ function Pricing() {
   return (
     <section id="checkout" className="py-16 px-4 bg-gray-50">
       <div className="max-w-5xl mx-auto text-center">
-        <p className="font-bold tracking-widest text-xs uppercase mb-2 text-gray-500">Escolha o que faz sentido para sua rotina</p>
+        <p className="font-bold tracking-widest text-xs uppercase mb-2 text-gray-500">Oferta completa em pagamento único</p>
         <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-gray-950">Menos tempo planejando. Mais participação em sala.</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">Os dois planos incluem acesso imediato e 30 dias de garantia. O Completo reúne todos os recursos e tem o melhor custo-benefício.</p>
-        <div className="flex flex-col md:flex-row gap-7 justify-center items-stretch mt-10">
-          <article className="rounded-[24px] bg-white border-2 border-gray-200 p-7 max-w-sm w-full mx-auto md:mx-0 flex flex-col text-left">
-            <p className="font-bold text-sm text-gray-500 mb-2">Para começar com as dinâmicas</p>
-            <h3 className="font-extrabold text-2xl text-gray-950">Plano Essencial</h3>
-            <ul className="space-y-3 my-7 flex-1">
-              {["250 dinâmicas de História", "Fundamental II e Ensino Médio", "Orientações de aplicação", "Acesso digital imediato", "Garantia de 30 dias"].map((f) => <li key={f} className="flex gap-2 text-sm font-medium"><CheckIcon />{f}</li>)}
-            </ul>
-            <div className="mb-5"><span className="text-sm text-gray-500 block">Pagamento único</span><strong className="text-4xl text-gray-950">R$14,90</strong></div>
-            <a href={getCheckoutUrl("https://pay.lowify.com.br/go.php?offer=r4c17em")} target="_blank" rel="noopener noreferrer" onClick={trackCheckout} className="w-full text-center bg-white hover:bg-gray-50 text-gray-950 font-extrabold py-4 px-5 rounded-full border-2 border-gray-950 transition-transform hover:-translate-y-1">QUERO O PLANO ESSENCIAL</a>
-          </article>
-
-          <article className="rounded-[24px] bg-gray-950 text-white border-4 border-yellow-400 p-7 max-w-sm w-full mx-auto md:mx-0 flex flex-col text-left shadow-2xl relative md:-translate-y-3">
-            <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-black text-xs font-extrabold px-5 py-2 rounded-full whitespace-nowrap">ESCOLHIDO PELA MAIORIA</span>
-            <p className="font-bold text-sm text-yellow-400 mb-2 mt-2">Para ter o kit completo</p>
-            <h3 className="font-extrabold text-2xl">Plano Completo</h3>
+        <p className="text-gray-600 max-w-2xl mx-auto">Um único plano com todas as dinâmicas, jogos, debates, mapas e avaliações. Sem precisar escolher entre versões.</p>
+        <div className="flex justify-center mt-12">
+          <article className="rounded-[24px] bg-gray-950 text-white border-4 border-yellow-400 p-7 max-w-md w-full mx-auto flex flex-col text-left shadow-2xl relative">
+            <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-black text-xs font-extrabold px-5 py-2 rounded-full whitespace-nowrap">ACESSO COMPLETO</span>
+            <p className="font-bold text-sm text-yellow-400 mb-2 mt-2">Tudo o que você precisa para aplicar</p>
+            <h3 className="font-extrabold text-2xl">Kit Completo de História</h3>
             <img src="/product.png" alt="Plano Completo de Dinâmicas de História" className="w-full rounded-2xl my-5" />
             <ul className="space-y-3 mb-7 flex-1">
               {["250 dinâmicas de História", "50 linhas do tempo ilustradas", "30 jogos históricos", "Apostila de mapas históricos", "40 debates estruturados", "Banco de avaliações", "Todos os bônus inclusos"].map((f) => <li key={f} className="flex gap-2 text-sm font-medium"><CheckIcon />{f}</li>)}
             </ul>
-            <div className="mb-5"><span className="text-sm text-gray-400 block">Pagamento único</span><strong className="text-4xl">R$17,90</strong></div>
-            <a href={getCheckoutUrl("https://pay.lowify.com.br/checkout.php?product_id=2OOlYi")} target="_blank" rel="noopener noreferrer" onClick={trackCheckout} className="w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black font-extrabold py-4 px-5 rounded-full border-2 border-yellow-400 transition-transform hover:-translate-y-1">QUERO O KIT COMPLETO</a>
-            <p className="text-center text-xs text-gray-400 mt-4">Apenas R$3 a mais que o Essencial</p>
+            <div className="mb-5 text-center"><span className="text-sm text-gray-400 block">Pagamento único</span><strong className="text-5xl">R$29,90</strong></div>
+            <a href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")} target="_blank" rel="noopener noreferrer" onClick={trackCheckout} className="w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black font-extrabold py-4 px-5 rounded-full border-2 border-yellow-400 transition-transform hover:-translate-y-1">QUERO O KIT COMPLETO AGORA</a>
+            <p className="text-center text-xs text-gray-400 mt-4">Acesso imediato após a confirmação do pagamento</p>
           </article>
         </div>
         <div className="mt-10 flex flex-wrap justify-center gap-x-7 gap-y-2 text-sm font-semibold text-gray-600"><span>✓ Acesso imediato</span><span>✓ Pagamento seguro</span><span>✓ Garantia de 30 dias</span></div>
@@ -537,7 +527,7 @@ export default function LandingPage() {
       <FAQ />
       <FinalCTA />
       <Footer />
-      <a href="#checkout" className="md:hidden fixed bottom-3 left-3 right-3 z-40 bg-gray-950 text-yellow-400 text-center font-extrabold py-4 px-5 rounded-full shadow-2xl border-2 border-yellow-400">VER PLANOS A PARTIR DE R$14,90</a>
+      <a href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")} target="_blank" rel="noopener noreferrer" onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq("track", "InitiateCheckout"); }} className="md:hidden fixed bottom-3 left-3 right-3 z-40 bg-gray-950 text-yellow-400 text-center font-extrabold py-4 px-5 rounded-full shadow-2xl border-2 border-yellow-400">GARANTIR AGORA · R$29,90</a>
     </div>
   );
 }
