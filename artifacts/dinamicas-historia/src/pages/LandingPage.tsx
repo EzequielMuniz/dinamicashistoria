@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, type RefObject } from "react";
 
 function getTodayBR() {
   return new Date().toLocaleDateString("pt-BR");
@@ -52,6 +52,17 @@ function useDragScroll() {
   return ref;
 }
 
+function ScrollCue({ scrollRef }: { scrollRef: RefObject<HTMLDivElement | null> }) {
+  const move = (direction: number) => scrollRef.current?.scrollBy({ left: direction * 280, behavior: "smooth" });
+  return (
+    <div className="flex items-center justify-center gap-3 mt-5" aria-label="Controles do carrossel">
+      <button type="button" onClick={() => move(-1)} className="w-10 h-10 rounded-full bg-white border-2 border-gray-900 shadow-sm font-black text-xl hover:bg-yellow-400 transition-colors" aria-label="Ver itens anteriores">‹</button>
+      <span className="bg-gray-900 text-white rounded-full px-5 py-2 text-xs font-extrabold tracking-wide animate-pulse">ARRASTE PARA O LADO</span>
+      <button type="button" onClick={() => move(1)} className="w-10 h-10 rounded-full bg-yellow-400 border-2 border-gray-900 shadow-sm font-black text-xl hover:bg-yellow-300 transition-colors" aria-label="Ver próximos itens">›</button>
+    </div>
+  );
+}
+
 /* ─── Countdown ─────────────────────────────────────────── */
 function Countdown() {
   return (
@@ -96,14 +107,15 @@ function Hero() {
               const v = document.querySelector("video");
               v?.play();
             }}
-            className="absolute inset-0 flex items-center justify-center rounded-[16px]"
+            className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-[16px] bg-black/40 backdrop-brightness-90 group"
             aria-label="Reproduzir vídeo"
           >
-            <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center shadow-[0px_8px_24px_rgba(0,0,0,0.35)] border-4 border-black hover:scale-110 transition-transform">
+            <div className="w-20 h-20 bg-yellow-400/90 rounded-full flex items-center justify-center shadow-[0px_8px_24px_rgba(0,0,0,0.45)] border-4 border-white/90 group-hover:scale-110 transition-transform">
               <svg viewBox="0 0 24 24" fill="black" className="w-8 h-8 ml-1">
                 <path d="M8 5v14l11-7z" />
               </svg>
             </div>
+            <span className="bg-black/70 text-white font-extrabold text-sm px-5 py-2 rounded-full border border-white/30">▶ TOQUE PARA ASSISTIR</span>
           </button>
         )}
       </div>
@@ -123,7 +135,7 @@ function Hero() {
 /* ─── O Que Você Vai Receber ────────────────────────────── */
 function WhatYouGet() {
   const items = [
-    { icon: "📦", title: "+250 Dinâmicas Prontas", desc: "Atividades interativas para o Ensino Fundamental II e o Ensino Médio." },
+    { icon: "📦", title: "Mais de 250 Dinâmicas Prontas", desc: "Atividades interativas para o Ensino Fundamental II e o Ensino Médio." },
     { icon: "⏱️", title: "Aplicação Passo a Passo", desc: "Orientações claras para escolher, preparar e conduzir cada atividade." },
     { icon: "⚡", title: "Acesso Imediato", desc: "Receba por e-mail e comece a preparar sua próxima aula no mesmo dia." },
     { icon: "🖨️", title: "Use Como Preferir", desc: "Consulte no celular, abra no computador ou imprima para levar à escola." },
@@ -218,19 +230,23 @@ function Bonuses() {
           </span>
         </div>
         <h2 className="text-3xl font-bold text-center mb-3 text-gray-900">Bônus Exclusivos</h2>
-        <div ref={dragRef} className="flex gap-4 overflow-x-auto no-scrollbar pb-4 mt-8 select-none">
-          {bonuses.map((b) => (
-            <div key={b.title} className="shrink-0 rounded-[16px] overflow-hidden shadow-md bg-white border-2 border-yellow-400 w-60">
-              <img src={b.img} alt={b.title} className="w-full h-40 object-cover pointer-events-none" />
-              <div className="px-4 py-4">
-                <div className="text-red-500 font-bold text-xs line-through mb-1">{b.value}</div>
-                <h3 className="font-bold text-gray-900 text-sm mb-1">{b.title}</h3>
-                <p className="text-gray-500 text-xs">{b.desc}</p>
+        <div className="relative mt-8">
+          <div className="pointer-events-none absolute left-0 top-0 bottom-4 w-10 z-10 bg-gradient-to-r from-gray-50 to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-4 w-16 z-10 bg-gradient-to-l from-gray-50 to-transparent flex items-center justify-end pr-1"><span className="bg-yellow-400 border-2 border-black rounded-full w-9 h-9 flex items-center justify-center text-xl font-black shadow-md">›</span></div>
+          <div ref={dragRef} className="flex gap-4 overflow-x-auto no-scrollbar pb-4 select-none snap-x snap-mandatory scroll-smooth">
+            {bonuses.map((b) => (
+              <div key={b.title} className="shrink-0 rounded-[16px] overflow-hidden shadow-md bg-white border-2 border-yellow-400 w-[78vw] max-w-60 snap-start">
+                <img src={b.img} alt={b.title} className="w-full h-40 object-cover pointer-events-none" />
+                <div className="px-4 py-4">
+                  <div className="text-red-500 font-bold text-xs line-through mb-1">{b.value}</div>
+                  <h3 className="font-bold text-gray-900 text-sm mb-1">{b.title}</h3>
+                  <p className="text-gray-500 text-xs">{b.desc}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        <p className="text-center text-gray-400 text-xs mt-2">← deslize para ver mais →</p>
+        <ScrollCue scrollRef={dragRef} />
       </div>
     </section>
   );
@@ -284,16 +300,15 @@ function Testimonials() {
         <div className="font-extrabold text-xl text-gray-900 mb-1">4.9/5</div>
         <p className="text-gray-500 text-sm mb-8">(+2.800 professores)</p>
         <h2 className="text-3xl font-bold mb-3 text-center text-gray-900">O Que Dizem os Professores</h2>
-        <div ref={dragRef} className="flex gap-4 overflow-x-auto no-scrollbar pb-4 mt-8 justify-start select-none">
-          {Array.from({ length: 10 }, (_, i) => (
-            <img
-              key={i}
-              src={`/wpp${i + 1}.jpg`}
-              alt={`Depoimento ${i + 1}`}
-              className="shrink-0 w-48 rounded-[16px] shadow-md object-contain bg-white border border-gray-100 pointer-events-none"
-            />
-          ))}
+        <div className="relative mt-8">
+          <div className="pointer-events-none absolute right-0 top-0 bottom-4 w-16 z-10 bg-gradient-to-l from-gray-50 to-transparent flex items-center justify-end pr-1"><span className="bg-yellow-400 border-2 border-black rounded-full w-9 h-9 flex items-center justify-center text-xl font-black shadow-md">›</span></div>
+          <div ref={dragRef} className="flex gap-4 overflow-x-auto no-scrollbar pb-4 justify-start select-none snap-x snap-mandatory scroll-smooth">
+            {Array.from({ length: 10 }, (_, i) => (
+              <img key={i} src={`/wpp${i + 1}.jpg`} alt={`Depoimento ${i + 1}`} className="shrink-0 w-[72vw] max-w-48 rounded-[16px] shadow-md object-contain bg-white border border-gray-100 pointer-events-none snap-start" />
+            ))}
+          </div>
         </div>
+        <ScrollCue scrollRef={dragRef} />
       </div>
     </section>
   );
@@ -315,7 +330,7 @@ function ForWho() {
         <p className="font-bold tracking-widest text-xs uppercase mb-2 text-gray-400">Feito para você?</p>
         <h2 className="text-3xl font-bold mb-3 text-gray-900">Esse material é ideal para...</h2>
         <p className="text-gray-500 text-sm mb-8">
-          Veja se as +250 Dinâmicas de História foram feitas para o seu momento
+          Veja se as mais de 250 Dinâmicas de História foram feitas para o seu momento
         </p>
         <div className="space-y-4 text-left">
           {items.map((item) => (
