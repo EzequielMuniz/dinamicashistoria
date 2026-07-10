@@ -52,88 +52,11 @@ function useDragScroll() {
   return ref;
 }
 
-/* ─── Upsell Modal ──────────────────────────────────────── */
-function UpsellModal({ onClose }: { onClose: () => void }) {
-  const features = [
-    "+350 Dinâmicas",
-    "Todos os Bônus Exclusivos",
-    "Acesso Vitalício",
-    "Garantia Total",
-  ];
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
-      <div className="bg-white rounded-[24px] p-8 max-w-sm w-full relative shadow-2xl">
-        {/* close */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold leading-none"
-        >
-          ×
-        </button>
-
-        {/* badge */}
-        <div className="flex justify-center mb-4">
-          <span className="bg-[#e8533a] text-white text-xs font-extrabold px-5 py-2 rounded-full tracking-wide whitespace-nowrap shadow-md">
-            OFERTA EXCLUSIVA
-          </span>
-        </div>
-
-        {/* title */}
-        <h2 className="text-2xl font-extrabold text-center text-gray-900 mb-1">
-          Leve o Plano Premium!
-        </h2>
-
-        {/* price */}
-        <div className="text-center mb-5">
-          <span className="block text-gray-400 line-through text-sm">De R$17,90</span>
-          <span className="block text-green-600 font-extrabold text-4xl">Por R$14,90</span>
-        </div>
-
-        {/* features */}
-        <ul className="space-y-3 mb-6">
-          {features.map((f) => (
-            <li key={f} className="flex items-center gap-2 text-sm font-medium text-gray-800">
-              <span className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
-                <svg viewBox="0 0 20 20" fill="white" className="w-3 h-3">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-              </span>
-              {f}
-            </li>
-          ))}
-        </ul>
-
-        {/* CTA */}
-        <a
-          href={getCheckoutUrl("https://pay.lowify.com.br/go.php?offer=r4c17em")}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); onClose(); }}
-          className="block w-full text-center bg-green-500 hover:bg-green-600 text-white font-extrabold py-4 px-6 rounded-full text-base shadow-[3px_3px_0px_0px_rgba(0,100,0,0.4)] transition-transform hover:-translate-y-1 mb-4"
-        >
-          SIM, QUERO O DESCONTO!
-        </a>
-
-        {/* decline */}
-        <a
-          href={getCheckoutUrl("https://pay.lowify.com.br/go.php?offer=d0ivo51")}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); }}
-          className="block w-full text-center text-gray-400 text-sm underline hover:text-gray-600"
-        >
-          Não, quero apenas o pacote básico
-        </a>
-      </div>
-    </div>
-  );
-}
-
 /* ─── Countdown ─────────────────────────────────────────── */
 function Countdown() {
   return (
     <div className="bg-yellow-400 text-center py-2 text-sm font-bold tracking-wide text-gray-900">
-      ⏰ OFERTA VÁLIDA SOMENTE HOJE: {getTodayBR()}
+      CONDIÇÃO ESPECIAL DISPONÍVEL HOJE · {getTodayBR()}
     </div>
   );
 }
@@ -144,15 +67,15 @@ function Hero() {
 
   return (
     <section className="py-16 px-4 max-w-5xl mx-auto text-center">
-      <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-        <span className="bg-yellow-400 px-2 rounded-md inline-block transform -rotate-1">
-          +250 Dinâmicas
+      <p className="font-extrabold tracking-[0.18em] text-xs uppercase text-gray-500 mb-4">Para professores de História</p>
+      <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-[1.05] text-gray-950">
+        Aulas prontas que fazem até a turma mais dispersa
+        <span className="bg-yellow-400 px-2 rounded-md inline-block md:ml-2 mt-2 transform -rotate-1">
+          participar
         </span>
-        <br />
-        de História
       </h1>
       <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-        Transforme suas aulas em viagens no tempo inesquecíveis e prenda a atenção dos alunos do início ao fim.
+        Dinâmicas, jogos, debates e atividades organizadas para você aplicar sem passar horas criando aulas do zero.
       </p>
 
       {/* VSL — inside hero, between subtitle and CTA */}
@@ -190,8 +113,9 @@ function Hero() {
         href="#checkout"
         className="bg-black text-yellow-400 font-bold py-4 px-10 rounded-full text-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] transition-transform hover:-translate-y-1 inline-flex items-center gap-2 cursor-pointer"
       >
-        🎯 Quero minhas dinâmicas agora!
+        QUERO ECONOMIZAR HORAS DE PLANEJAMENTO
       </a>
+      <p className="mt-4 text-sm text-gray-500">Acesso imediato · Material digital · 30 dias de garantia</p>
     </section>
   );
 }
@@ -199,9 +123,10 @@ function Hero() {
 /* ─── O Que Você Vai Receber ────────────────────────────── */
 function WhatYouGet() {
   const items = [
-    { icon: "📦", title: "Material Completo", desc: "Acesso a todas as +250 dinâmicas interativas e recursos de história" },
-    { icon: "⚡", title: "Acesso Imediato", desc: "Comece a usar no mesmo dia. Sem espera, sem burocracia" },
-    { icon: "📅", title: "Planejamento", desc: "Planejamentos anuais estruturados e prontos para usar em suas aulas" },
+    { icon: "📦", title: "+250 Dinâmicas Prontas", desc: "Atividades interativas para o Ensino Fundamental II e o Ensino Médio." },
+    { icon: "⏱️", title: "Aplicação Passo a Passo", desc: "Orientações claras para escolher, preparar e conduzir cada atividade." },
+    { icon: "⚡", title: "Acesso Imediato", desc: "Receba por e-mail e comece a preparar sua próxima aula no mesmo dia." },
+    { icon: "🖨️", title: "Use Como Preferir", desc: "Consulte no celular, abra no computador ou imprima para levar à escola." },
   ];
   return (
     <section className="py-16 px-4 bg-white">
@@ -220,6 +145,55 @@ function WhatYouGet() {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Material por dentro ───────────────────────────────── */
+function ProductPreview() {
+  const steps = [
+    ["1", "Escolha a dinâmica", "Encontre uma atividade adequada ao tema e à turma."],
+    ["2", "Prepare em poucos minutos", "Confira duração, objetivo e materiais necessários."],
+    ["3", "Aplique com segurança", "Siga o passo a passo e conduza a participação dos alunos."],
+  ];
+  return (
+    <section className="py-16 px-4 bg-gray-950 text-white">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p className="text-yellow-400 font-extrabold tracking-widest text-xs uppercase mb-3">Não é só uma lista de ideias</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold leading-tight mb-5">Abra o material e saiba exatamente o que fazer na próxima aula</h2>
+          <p className="text-gray-300 mb-7">As dinâmicas foram organizadas para reduzir o improviso: você entende a proposta, separa materiais simples e aplica.</p>
+          <div className="space-y-5">
+            {steps.map(([number, title, desc]) => (
+              <div key={number} className="flex gap-4">
+                <span className="w-9 h-9 shrink-0 rounded-full bg-yellow-400 text-black font-extrabold flex items-center justify-center">{number}</span>
+                <div><h3 className="font-bold mb-1">{title}</h3><p className="text-sm text-gray-400">{desc}</p></div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="relative">
+          <div className="absolute -inset-3 bg-yellow-400 rounded-[28px] rotate-2" />
+          <img src="/product.jpg" alt="Kit completo de Dinâmicas Interativas de História" className="relative w-full rounded-[22px] shadow-2xl" />
+          <div className="relative mt-5 grid grid-cols-3 gap-2 text-center text-xs font-bold">
+            <span className="bg-white/10 rounded-xl px-2 py-3">Fundamental II</span>
+            <span className="bg-white/10 rounded-xl px-2 py-3">Ensino Médio</span>
+            <span className="bg-white/10 rounded-xl px-2 py-3">Pronto para usar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TimeValue() {
+  return (
+    <section className="py-16 px-4 bg-yellow-400">
+      <div className="max-w-3xl mx-auto text-center">
+        <p className="font-extrabold tracking-widest text-xs uppercase mb-3">Seu tempo também tem valor</p>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-950 mb-5">Criar 250 atividades do zero pode consumir mais de 40 horas</h2>
+        <p className="text-gray-800 text-lg">Mesmo gastando apenas 10 minutos em cada atividade, seriam 41 horas de pesquisa e planejamento. Aqui, o trabalho pesado já está organizado para você.</p>
       </div>
     </section>
   );
@@ -357,112 +331,45 @@ function ForWho() {
 }
 
 /* ─── Pricing ───────────────────────────────────────────── */
-function Pricing({ onBasicClick }: { onBasicClick: () => void }) {
+function CheckIcon() {
+  return <span className="w-5 h-5 rounded-full bg-green-500 text-white flex items-center justify-center flex-shrink-0 text-xs font-black">✓</span>;
+}
+
+function Pricing() {
+  const trackCheckout = () => {
+    if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq("track", "InitiateCheckout");
+  };
   return (
     <section id="checkout" className="py-16 px-4 bg-gray-50">
       <div className="max-w-5xl mx-auto text-center">
-        <p className="font-bold tracking-widest text-xs uppercase mb-2 text-gray-400">Oferta especial por tempo limitado</p>
-        <h2 className="text-3xl font-bold mb-3 text-gray-900">Escolha seu Plano</h2>
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-start mt-10">
+        <p className="font-bold tracking-widest text-xs uppercase mb-2 text-gray-500">Escolha o que faz sentido para sua rotina</p>
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-gray-950">Menos tempo planejando. Mais participação em sala.</h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">Os dois planos incluem acesso imediato e 30 dias de garantia. O Completo reúne todos os recursos e tem o melhor custo-benefício.</p>
+        <div className="flex flex-col md:flex-row gap-7 justify-center items-stretch mt-10">
+          <article className="rounded-[24px] bg-white border-2 border-gray-200 p-7 max-w-sm w-full mx-auto md:mx-0 flex flex-col text-left">
+            <p className="font-bold text-sm text-gray-500 mb-2">Para começar com as dinâmicas</p>
+            <h3 className="font-extrabold text-2xl text-gray-950">Plano Essencial</h3>
+            <ul className="space-y-3 my-7 flex-1">
+              {["250 dinâmicas de História", "Fundamental II e Ensino Médio", "Orientações de aplicação", "Acesso digital imediato", "Garantia de 30 dias"].map((f) => <li key={f} className="flex gap-2 text-sm font-medium"><CheckIcon />{f}</li>)}
+            </ul>
+            <div className="mb-5"><span className="text-sm text-gray-500 block">Pagamento único</span><strong className="text-4xl text-gray-950">R$14,90</strong></div>
+            <a href={getCheckoutUrl("https://pay.lowify.com.br/go.php?offer=r4c17em")} target="_blank" rel="noopener noreferrer" onClick={trackCheckout} className="w-full text-center bg-white hover:bg-gray-50 text-gray-950 font-extrabold py-4 px-5 rounded-full border-2 border-gray-950 transition-transform hover:-translate-y-1">QUERO O PLANO ESSENCIAL</a>
+          </article>
 
-          {/* Básico */}
-          <div className="rounded-[24px] shadow-[0px_12px_24px_-4px_rgba(0,0,0,0.18)] flex flex-col relative bg-white border border-gray-100 pt-3 max-w-sm w-full mx-auto md:mx-0">
-            <div className="mx-3 mt-3 rounded-2xl overflow-hidden">
-              <div className="px-6 pt-6 pb-4 border-b border-gray-300 text-center">
-                <h3 className="font-extrabold text-xl text-gray-900 mb-2">Pacote Básico</h3>
-              </div>
-            </div>
-            <div className="mx-3 rounded-2xl px-6 py-5 text-center">
-              <ul className="space-y-3 mb-5 text-left">
-                {["250 Atividades Avaliativas", "Acesso Imediato", "Garantia de 30 dias"].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm font-medium text-gray-800">
-                    <span className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
-                      <svg viewBox="0 0 20 20" fill="white" className="w-3 h-3">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </span>
-                    {f}
-                  </li>
-                ))}
-                {["Bônus Exclusivos", "Linhas do Tempo Ilustradas", "Mapas Históricos"].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-gray-400">
-                    <span className="text-red-400 font-bold text-base flex-shrink-0">✕</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <div className="mb-4 text-center">
-                <span className="text-gray-400 line-through text-sm block">De R$ 17,90</span>
-                <span className="text-2xl align-top mt-2 inline-block text-gray-900 font-bold">R$ </span>
-                <span className="font-extrabold text-4xl text-gray-900">5,90</span>
-              </div>
-            </div>
-            <div className="p-5 text-center">
-              <button
-                onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); onBasicClick(); }}
-                className="block w-full text-center bg-white hover:bg-gray-50 text-gray-900 font-bold py-3 px-6 rounded-full border-2 border-gray-900 transition-transform hover:-translate-y-1"
-              >
-                Quero o Plano Básico!
-              </button>
-              <p className="mt-3 text-sm text-gray-400">⬇️ Veja a oferta mais vantajosa abaixo! ⬇️</p>
-            </div>
-          </div>
-
-          {/* Premium */}
-          <div className="bg-[#f5f5e8] rounded-[24px] shadow-[0px_12px_24px_-4px_rgba(0,0,0,0.08)] border border-gray-300 flex flex-col relative max-w-sm w-full mx-auto md:mx-0 pt-3">
-            {/* badge */}
-            <div className="flex justify-center mb-2">
-              <span className="bg-[#e8533a] text-white text-xs font-extrabold px-5 py-2 rounded-full tracking-wide whitespace-nowrap shadow-md">
-                ⭐ MAIS VENDIDO ⭐
-              </span>
-            </div>
-            <div className="mx-3 mt-1 rounded-2xl overflow-hidden">
-              <div className="px-6 pt-4 pb-4 border-b border-gray-300 text-center">
-                <h3 className="font-extrabold text-xl text-gray-900 mb-2">👑 Pacote Premium!</h3>
-              </div>
-            </div>
-            <div className="mx-3 px-4 py-4">
-              <img src="/product.png" alt="Kit Completo" className="w-full rounded-2xl mb-4 object-cover" />
-              <ul className="space-y-3 mb-6 text-left">
-                {[
-                  "350 Atividades Avaliativas",
-                  "Acesso Imediato",
-                  "Garantia de 30 dias",
-                  "50 Linhas do Tempo Ilustradas",
-                  "30 Jogos Históricos Prontos",
-                  "Apostila de Mapas Históricos",
-                  "40 Debates Históricos",
-                  "Banco de Avaliações",
-                  "Todos os Bônus Exclusivos",
-                ].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm font-medium text-gray-800">
-                    <span className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
-                      <svg viewBox="0 0 20 20" fill="white" className="w-3 h-3">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <div className="text-center mb-4">
-                <span className="text-gray-400 line-through text-sm block">R$ 241,00</span>
-                <span className="text-2xl align-top mt-2 inline-block text-gray-900 font-bold">R$ </span>
-                <span className="font-extrabold text-4xl text-gray-900">17,90</span>
-              </div>
-              <a
-                href={getCheckoutUrl("https://pay.lowify.com.br/checkout.php?product_id=2OOlYi")}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); }}
-                className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-full text-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-transform hover:-translate-y-1 active:translate-y-0 active:shadow-none inline-flex items-center justify-center gap-2 cursor-pointer w-full mb-3"
-              >
-                QUERO O PLANO PREMIUM
-              </a>
-            </div>
-          </div>
-
+          <article className="rounded-[24px] bg-gray-950 text-white border-4 border-yellow-400 p-7 max-w-sm w-full mx-auto md:mx-0 flex flex-col text-left shadow-2xl relative md:-translate-y-3">
+            <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-black text-xs font-extrabold px-5 py-2 rounded-full whitespace-nowrap">ESCOLHIDO PELA MAIORIA</span>
+            <p className="font-bold text-sm text-yellow-400 mb-2 mt-2">Para ter o kit completo</p>
+            <h3 className="font-extrabold text-2xl">Plano Completo</h3>
+            <img src="/product.png" alt="Plano Completo de Dinâmicas de História" className="w-full rounded-2xl my-5" />
+            <ul className="space-y-3 mb-7 flex-1">
+              {["250 dinâmicas de História", "50 linhas do tempo ilustradas", "30 jogos históricos", "Apostila de mapas históricos", "40 debates estruturados", "Banco de avaliações", "Todos os bônus inclusos"].map((f) => <li key={f} className="flex gap-2 text-sm font-medium"><CheckIcon />{f}</li>)}
+            </ul>
+            <div className="mb-5"><span className="text-sm text-gray-400 block">Pagamento único</span><strong className="text-4xl">R$17,90</strong></div>
+            <a href={getCheckoutUrl("https://pay.lowify.com.br/checkout.php?product_id=2OOlYi")} target="_blank" rel="noopener noreferrer" onClick={trackCheckout} className="w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black font-extrabold py-4 px-5 rounded-full border-2 border-yellow-400 transition-transform hover:-translate-y-1">QUERO O KIT COMPLETO</a>
+            <p className="text-center text-xs text-gray-400 mt-4">Apenas R$3 a mais que o Essencial</p>
+          </article>
         </div>
+        <div className="mt-10 flex flex-wrap justify-center gap-x-7 gap-y-2 text-sm font-semibold text-gray-600"><span>✓ Acesso imediato</span><span>✓ Pagamento seguro</span><span>✓ Garantia de 30 dias</span></div>
       </div>
     </section>
   );
@@ -504,6 +411,26 @@ function Author() {
   );
 }
 
+function Objections() {
+  const items = [
+    ["Minha turma é muito agitada", "As propostas trazem uma estrutura clara para dividir a turma e conduzir cada etapa."],
+    ["Não tenho materiais especiais", "A maior parte das atividades utiliza papel, quadro e recursos comuns da escola."],
+    ["Dou aula para anos diferentes", "As dinâmicas podem ser usadas e adaptadas no Ensino Fundamental II e no Ensino Médio."],
+    ["Não tenho tempo para aprender algo complicado", "Você escolhe a atividade, confere as orientações e prepara a aplicação."],
+  ];
+  return (
+    <section className="py-16 px-4 bg-white">
+      <div className="max-w-4xl mx-auto">
+        <p className="text-center font-extrabold tracking-widest text-xs uppercase text-gray-500 mb-3">Talvez você esteja pensando...</p>
+        <h2 className="text-3xl font-extrabold text-center text-gray-950 mb-10">Isso funcionará com as minhas turmas?</h2>
+        <div className="grid md:grid-cols-2 gap-5">
+          {items.map(([title, desc]) => <div key={title} className="rounded-2xl border border-gray-200 p-6"><h3 className="font-extrabold text-gray-950 mb-2">“{title}”</h3><p className="text-sm text-gray-600">{desc}</p></div>)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── Garantia ──────────────────────────────────────────── */
 function Guarantee() {
   return (
@@ -512,9 +439,8 @@ function Guarantee() {
         <h2 className="text-3xl font-bold mb-3 text-gray-900">Garantia de 30 Dias</h2>
         <div className="bg-green-50 border-2 border-green-400 rounded-[24px] p-10 max-w-2xl mx-auto mt-8">
           <div className="text-5xl mb-4">🛡️</div>
-          <p className="text-gray-700 text-base">
-            Se você não ficar 100% satisfeito com o material por qualquer motivo, devolvemos todo o seu dinheiro. Sem perguntas, sem burocracia.
-          </p>
+          <h3 className="font-extrabold text-xl mb-3 text-gray-950">Você pode conferir o material com tranquilidade</h3>
+          <p className="text-gray-700 text-base">Abra os arquivos, conheça as dinâmicas e veja se fazem sentido para suas turmas. Caso não queira continuar, solicite o reembolso dentro do prazo de garantia.</p>
         </div>
       </div>
     </section>
@@ -527,7 +453,7 @@ function FAQ() {
     { q: "Para quem é esse material?", a: "Para professores de História do Ensino Fundamental e Médio que querem tornar suas aulas mais dinâmicas, engajantes e produtivas." },
     { q: "Em quanto tempo recebo o material?", a: "O acesso é imediato após a confirmação do pagamento. Você receberá um e-mail com os links de download." },
     { q: "O material funciona em qual formato?", a: "O material é entregue em PDF de alta qualidade, compatível com qualquer dispositivo: computador, tablet ou celular." },
-    { q: "Tem garantia?", a: "Sim! Oferecemos 30 dias de garantia incondicional. Se não gostar, devolvemos 100% do valor pago." },
+    { q: "Tem garantia?", a: "Sim. Você tem 30 dias para conhecer o material e solicitar o reembolso caso não queira continuar." },
     { q: "Posso usar com qualquer ano escolar?", a: "Sim! O material foi pensado para ser adaptável a diferentes anos escolares do Ensino Fundamental II e Médio." },
   ];
   const [open, setOpen] = useState<number | null>(null);
@@ -563,7 +489,7 @@ function FinalCTA() {
   return (
     <section className="py-20 px-4 bg-yellow-400 text-center">
       <div className="max-w-lg mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-2 text-gray-900">Transforme suas Aulas Hoje!</h2>
+        <h2 className="text-3xl font-bold mb-2 text-gray-900">Sua próxima aula não precisa começar do zero</h2>
         <p className="font-semibold text-sm mb-6 text-gray-800">
           Mais de 2.800 professores já descobriram como tornar a história irresistível. Chegou a sua vez.
         </p>
@@ -571,7 +497,7 @@ function FinalCTA() {
           href="#checkout"
           className="btn-pulse block w-full text-center bg-green-500 hover:bg-green-600 text-white font-extrabold py-4 px-6 rounded-full text-base transition-transform hover:-translate-y-1 mb-4"
         >
-          🚀 Quero começar agora!
+          QUERO ECONOMIZAR HORAS TODA SEMANA
         </a>
         <p className="text-sm text-gray-700 font-semibold mb-6">
           ✅ Acesso imediato &nbsp;&nbsp; ✅ Garantia 30 dias &nbsp;&nbsp; ✅ Pagamento seguro
@@ -593,24 +519,25 @@ function Footer() {
 
 /* ─── Page ──────────────────────────────────────────────── */
 export default function LandingPage() {
-  const [showUpsell, setShowUpsell] = useState(false);
-
   return (
-    <div className="min-h-screen font-sans text-gray-800 bg-white">
-      {showUpsell && <UpsellModal onClose={() => setShowUpsell(false)} />}
+    <div className="min-h-screen font-sans text-gray-800 bg-white pb-20 md:pb-0">
       <Countdown />
       <Hero />
       <WhatYouGet />
+      <ProductPreview />
       <Bonuses />
       <WhyChoose />
       <Testimonials />
       <ForWho />
-      <Pricing onBasicClick={() => setShowUpsell(true)} />
+      <TimeValue />
+      <Pricing />
       <Author />
+      <Objections />
       <Guarantee />
       <FAQ />
       <FinalCTA />
       <Footer />
+      <a href="#checkout" className="md:hidden fixed bottom-3 left-3 right-3 z-40 bg-gray-950 text-yellow-400 text-center font-extrabold py-4 px-5 rounded-full shadow-2xl border-2 border-yellow-400">VER PLANOS A PARTIR DE R$14,90</a>
     </div>
   );
 }
