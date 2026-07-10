@@ -81,7 +81,7 @@ function Hero() {
       {/* VSL — inside hero, between subtitle and CTA */}
       <div className="my-8 mx-auto max-w-[600px] relative rounded-[20px] overflow-hidden bg-black">
         <video
-          src="/video.mp4"
+          src="/novavls.mp4"
           poster="/poster.jpg"
           preload="metadata"
           controls={playing}
