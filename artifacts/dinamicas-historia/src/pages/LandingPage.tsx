@@ -122,7 +122,10 @@ function Hero() {
 
       {/* CTA below VSL */}
       <a
-        href="#checkout"
+        href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq("track", "InitiateCheckout"); }}
         className="bg-black text-yellow-400 font-bold py-4 px-10 rounded-full text-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] transition-transform hover:-translate-y-1 inline-flex items-center gap-2 cursor-pointer"
       >
         QUERO ECONOMIZAR HORAS DE PLANEJAMENTO
@@ -232,7 +235,9 @@ function Bonuses() {
         <h2 className="text-3xl font-bold text-center mb-3 text-gray-900">Bônus Exclusivos</h2>
         <div className="relative mt-8">
           <div className="pointer-events-none absolute left-0 top-0 bottom-4 w-10 z-10 bg-gradient-to-r from-gray-50 to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 bottom-4 w-16 z-10 bg-gradient-to-l from-gray-50 to-transparent flex items-center justify-end pr-1"><span className="bg-yellow-400 border-2 border-black rounded-full w-9 h-9 flex items-center justify-center text-xl font-black shadow-md">›</span></div>
+          <div className="pointer-events-none absolute right-0 top-0 bottom-4 w-16 z-10 bg-gradient-to-l from-gray-50 to-transparent flex items-center justify-end pr-1">
+            <button type="button" onClick={() => dragRef.current?.scrollBy({ left: 280, behavior: "smooth" })} className="pointer-events-auto bg-yellow-400 border-2 border-black rounded-full w-10 h-10 flex items-center justify-center text-xl font-black shadow-md hover:scale-110 transition-transform" aria-label="Ver próximos bônus">›</button>
+          </div>
           <div ref={dragRef} className="flex gap-4 overflow-x-auto no-scrollbar pb-4 select-none snap-x snap-mandatory scroll-smooth">
             {bonuses.map((b) => (
               <div key={b.title} className="shrink-0 rounded-[16px] overflow-hidden shadow-md bg-white border-2 border-yellow-400 w-[78vw] max-w-60 snap-start">
@@ -301,7 +306,9 @@ function Testimonials() {
         <p className="text-gray-500 text-sm mb-8">(+2.800 professores)</p>
         <h2 className="text-3xl font-bold mb-3 text-center text-gray-900">O Que Dizem os Professores</h2>
         <div className="relative mt-8">
-          <div className="pointer-events-none absolute right-0 top-0 bottom-4 w-16 z-10 bg-gradient-to-l from-gray-50 to-transparent flex items-center justify-end pr-1"><span className="bg-yellow-400 border-2 border-black rounded-full w-9 h-9 flex items-center justify-center text-xl font-black shadow-md">›</span></div>
+          <div className="pointer-events-none absolute right-0 top-0 bottom-4 w-16 z-10 bg-gradient-to-l from-gray-50 to-transparent flex items-center justify-end pr-1">
+            <button type="button" onClick={() => dragRef.current?.scrollBy({ left: 240, behavior: "smooth" })} className="pointer-events-auto bg-yellow-400 border-2 border-black rounded-full w-10 h-10 flex items-center justify-center text-xl font-black shadow-md hover:scale-110 transition-transform" aria-label="Ver próximos depoimentos">›</button>
+          </div>
           <div ref={dragRef} className="flex gap-4 overflow-x-auto no-scrollbar pb-4 justify-start select-none snap-x snap-mandatory scroll-smooth">
             {Array.from({ length: 10 }, (_, i) => (
               <img key={i} src={`/wpp${i + 1}.jpg`} alt={`Depoimento ${i + 1}`} className="shrink-0 w-[72vw] max-w-48 rounded-[16px] shadow-md object-contain bg-white border border-gray-100 pointer-events-none snap-start" />
@@ -499,7 +506,10 @@ function FinalCTA() {
           Mais de 2.800 professores já descobriram como tornar a história irresistível. Chegou a sua vez.
         </p>
         <a
-          href="#checkout"
+          href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq("track", "InitiateCheckout"); }}
           className="btn-pulse block w-full text-center bg-green-500 hover:bg-green-600 text-white font-extrabold py-4 px-6 rounded-full text-base transition-transform hover:-translate-y-1 mb-4"
         >
           QUERO ECONOMIZAR HORAS TODA SEMANA
