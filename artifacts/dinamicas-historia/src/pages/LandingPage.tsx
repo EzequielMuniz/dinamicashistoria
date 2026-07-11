@@ -28,6 +28,11 @@ function trackInitiateCheckout() {
   }
 }
 
+function goToCheckout() {
+  trackInitiateCheckout();
+  window.location.assign(getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063"));
+}
+
 function useDragScroll() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -131,13 +136,13 @@ function Hero() {
       </div>
 
       {/* CTA below VSL */}
-      <a
-        href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")}
-        onClick={trackInitiateCheckout}
+      <button
+        type="button"
+        onClick={goToCheckout}
         className="bg-black text-yellow-400 font-bold py-4 px-10 rounded-full text-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] transition-transform hover:-translate-y-1 inline-flex items-center gap-2 cursor-pointer"
       >
         QUERO ECONOMIZAR HORAS DE PLANEJAMENTO
-      </a>
+      </button>
       <p className="mt-4 text-sm text-gray-500">Acesso imediato · Material digital · 30 dias de garantia</p>
     </section>
   );
@@ -382,7 +387,7 @@ function Pricing() {
               {["250 dinâmicas de História", "50 linhas do tempo ilustradas", "30 jogos históricos", "Apostila de mapas históricos", "40 debates estruturados", "Banco de avaliações", "Todos os bônus inclusos"].map((f) => <li key={f} className="flex gap-2 text-sm font-medium"><CheckIcon />{f}</li>)}
             </ul>
             <div className="mb-5 text-center"><span className="text-sm text-gray-400 block">Pagamento único</span><strong className="text-5xl">R$29,90</strong></div>
-            <a href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")} onClick={trackInitiateCheckout} className="block w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black font-extrabold py-4 px-5 rounded-full border-2 border-yellow-400 transition-transform hover:-translate-y-1 cursor-pointer">QUERO O KIT COMPLETO AGORA</a>
+            <button type="button" onClick={goToCheckout} className="block w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black font-extrabold py-4 px-5 rounded-full border-2 border-yellow-400 transition-transform hover:-translate-y-1 cursor-pointer">QUERO O KIT COMPLETO AGORA</button>
             <p className="text-center text-xs text-gray-400 mt-4">Acesso imediato após a confirmação do pagamento</p>
           </article>
         </div>
@@ -510,13 +515,13 @@ function FinalCTA() {
         <p className="font-semibold text-sm mb-6 text-gray-800">
           Mais de 2.800 professores já descobriram como tornar a história irresistível. Chegou a sua vez.
         </p>
-        <a
-          href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")}
-          onClick={trackInitiateCheckout}
+        <button
+          type="button"
+          onClick={goToCheckout}
           className="btn-pulse block w-full text-center bg-green-500 hover:bg-green-600 text-white font-extrabold py-4 px-6 rounded-full text-base transition-transform hover:-translate-y-1 mb-4"
         >
           QUERO ECONOMIZAR HORAS TODA SEMANA
-        </a>
+        </button>
         <p className="text-sm text-gray-700 font-semibold mb-6">
           ✅ Acesso imediato &nbsp;&nbsp; ✅ Garantia 30 dias &nbsp;&nbsp; ✅ Pagamento seguro
         </p>
@@ -555,7 +560,7 @@ export default function LandingPage() {
       <FAQ />
       <FinalCTA />
       <Footer />
-      <a href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")} onClick={trackInitiateCheckout} className="md:hidden fixed bottom-3 left-3 right-3 z-40 bg-gray-950 text-yellow-400 text-center font-extrabold py-4 px-5 rounded-full shadow-2xl border-2 border-yellow-400">GARANTIR AGORA · R$29,90</a>
+      <button type="button" onClick={goToCheckout} className="md:hidden fixed bottom-3 left-3 right-3 z-40 bg-gray-950 text-yellow-400 text-center font-extrabold py-4 px-5 rounded-full shadow-2xl border-2 border-yellow-400">GARANTIR AGORA · R$29,90</button>
     </div>
   );
 }
