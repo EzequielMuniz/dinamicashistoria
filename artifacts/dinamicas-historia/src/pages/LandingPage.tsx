@@ -18,6 +18,16 @@ function getCheckoutUrl(baseUrl: string) {
   }
 }
 
+function trackInitiateCheckout() {
+  try {
+    if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+      (window as any).fbq("track", "InitiateCheckout", { value: 29.90, currency: "BRL" });
+    }
+  } catch {
+    // A navegação para o checkout nunca deve depender de um script de rastreamento.
+  }
+}
+
 function useDragScroll() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -123,9 +133,7 @@ function Hero() {
       {/* CTA below VSL */}
       <a
         href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq("track", "InitiateCheckout"); }}
+        onClick={trackInitiateCheckout}
         className="bg-black text-yellow-400 font-bold py-4 px-10 rounded-full text-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] transition-transform hover:-translate-y-1 inline-flex items-center gap-2 cursor-pointer"
       >
         QUERO ECONOMIZAR HORAS DE PLANEJAMENTO
@@ -358,9 +366,6 @@ function CheckIcon() {
 }
 
 function Pricing() {
-  const trackCheckout = () => {
-    if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq("track", "InitiateCheckout");
-  };
   return (
     <section id="checkout" className="py-16 px-4 bg-gray-50">
       <div className="max-w-5xl mx-auto text-center">
@@ -377,7 +382,7 @@ function Pricing() {
               {["250 dinâmicas de História", "50 linhas do tempo ilustradas", "30 jogos históricos", "Apostila de mapas históricos", "40 debates estruturados", "Banco de avaliações", "Todos os bônus inclusos"].map((f) => <li key={f} className="flex gap-2 text-sm font-medium"><CheckIcon />{f}</li>)}
             </ul>
             <div className="mb-5 text-center"><span className="text-sm text-gray-400 block">Pagamento único</span><strong className="text-5xl">R$29,90</strong></div>
-            <a href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")} target="_blank" rel="noopener noreferrer" onClick={trackCheckout} className="w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black font-extrabold py-4 px-5 rounded-full border-2 border-yellow-400 transition-transform hover:-translate-y-1">QUERO O KIT COMPLETO AGORA</a>
+            <a href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")} onClick={trackInitiateCheckout} className="block w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black font-extrabold py-4 px-5 rounded-full border-2 border-yellow-400 transition-transform hover:-translate-y-1 cursor-pointer">QUERO O KIT COMPLETO AGORA</a>
             <p className="text-center text-xs text-gray-400 mt-4">Acesso imediato após a confirmação do pagamento</p>
           </article>
         </div>
@@ -507,9 +512,7 @@ function FinalCTA() {
         </p>
         <a
           href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq("track", "InitiateCheckout"); }}
+          onClick={trackInitiateCheckout}
           className="btn-pulse block w-full text-center bg-green-500 hover:bg-green-600 text-white font-extrabold py-4 px-6 rounded-full text-base transition-transform hover:-translate-y-1 mb-4"
         >
           QUERO ECONOMIZAR HORAS TODA SEMANA
@@ -552,7 +555,7 @@ export default function LandingPage() {
       <FAQ />
       <FinalCTA />
       <Footer />
-      <a href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")} target="_blank" rel="noopener noreferrer" onClick={() => { if (typeof window !== "undefined" && (window as any).fbq) (window as any).fbq("track", "InitiateCheckout"); }} className="md:hidden fixed bottom-3 left-3 right-3 z-40 bg-gray-950 text-yellow-400 text-center font-extrabold py-4 px-5 rounded-full shadow-2xl border-2 border-yellow-400">GARANTIR AGORA · R$29,90</a>
+      <a href={getCheckoutUrl("https://pay.cakto.com.br/3zuwz6w_829063")} onClick={trackInitiateCheckout} className="md:hidden fixed bottom-3 left-3 right-3 z-40 bg-gray-950 text-yellow-400 text-center font-extrabold py-4 px-5 rounded-full shadow-2xl border-2 border-yellow-400">GARANTIR AGORA · R$29,90</a>
     </div>
   );
 }
